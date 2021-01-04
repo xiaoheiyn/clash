@@ -113,20 +113,11 @@ proxies:
 
 
 # 配置开始
-- name: "深港"
-  type: vmess 
-  server: iplc3.xxatf.top
-  port: 38801
-  uuid: 47774c8c-ff60-3562-9b6b-9cccb97f1f75 
-  alterId: 2  
-  cipher: auto
-  udp: true    
-#  # tls: true      #TLS 开启
-#  # skip-cert-verify: true     #默认不开启
-  network: ws    
-  ws-path: /v2ray
-#  # ws-headers:     #默认不开启
-  Host: iplc3.xxatf.top
+- name: "香港"
+  type: trojan 
+  server: hk.xiaoheiyn.buzz
+  port: 443
+  password: chen125600
 
 
  
@@ -139,7 +130,7 @@ proxy-groups:
 - name: "自动节点选择"
   type: url-test
   proxies:
-    - "深港"
+    - "香港"
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
 
@@ -148,7 +139,7 @@ proxy-groups:
   type: select
   proxies:
     - "自动节点选择"
-    - "深港"
+    - "香港"
 # 白名单模式 PROXY，黑名单模式 DIRECT
 - name: "Final"
   type: select
@@ -166,13 +157,13 @@ proxy-groups:
   type: select
   proxies:
     - "PROXY"
-    - "深港"
+    - "香港"
 # 大陆流媒体面向港澳台限定服务
 - name: "HKMTMedia"
   type: select
   proxies:
     - "DIRECT"
-    - "深港"
+    - "香港"
 # 运营商及声名狼藉网站劫持
 - name: "Hijacking"
   type: select
